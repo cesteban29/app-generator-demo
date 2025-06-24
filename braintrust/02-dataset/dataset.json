@@ -1,0 +1,377 @@
+[
+    {
+      "input": {
+        "requirements": "Create a simple landing page for a coffee shop with a hero section, menu preview, and contact information. Should be responsive and modern looking."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with proper metadata and Tailwind setup",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx", 
+            "content": "Main landing page with hero, menu preview, and contact sections",
+            "type": "page"
+          },
+          {
+            "path": "app/globals.css",
+            "content": "Tailwind imports and custom styles",
+            "type": "style"
+          }
+        ],
+        "description": "Coffee shop landing page with hero section, menu preview, and contact info"
+      },
+      "metadata": {
+        "complexity": "simple",
+        "category": "landing_page",
+        "features": ["hero_section", "responsive_design", "contact_info"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Build a todo app with add, edit, delete, and mark complete functionality. Use TypeScript and local state management."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with TypeScript setup",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Main todo app page with state management",
+            "type": "page"
+          },
+          {
+            "path": "app/components/TodoItem.tsx",
+            "content": "Individual todo item component with edit/delete",
+            "type": "component"
+          },
+          {
+            "path": "app/types/todo.ts",
+            "content": "TypeScript interfaces for todo items",
+            "type": "config"
+          }
+        ],
+        "description": "Todo application with CRUD operations and TypeScript"
+      },
+      "metadata": {
+        "complexity": "medium",
+        "category": "crud_app",
+        "features": ["state_management", "typescript", "crud_operations"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Create a blog with dynamic routes for posts, a home page listing all posts, and individual post pages. Include API routes for fetching posts."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with navigation",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Home page with posts listing",
+            "type": "page"
+          },
+          {
+            "path": "app/posts/[slug]/page.tsx",
+            "content": "Dynamic post page",
+            "type": "page"
+          },
+          {
+            "path": "app/api/posts/route.ts",
+            "content": "API route for fetching all posts",
+            "type": "api"
+          },
+          {
+            "path": "app/api/posts/[slug]/route.ts",
+            "content": "API route for fetching individual post",
+            "type": "api"
+          }
+        ],
+        "description": "Blog with dynamic routing and API endpoints"
+      },
+      "metadata": {
+        "complexity": "medium",
+        "category": "blog",
+        "features": ["dynamic_routing", "api_routes", "data_fetching"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Build a dashboard with charts showing sales data, user analytics, and revenue metrics. Include a sidebar navigation and responsive grid layout."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with dashboard structure",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Dashboard page with charts and metrics",
+            "type": "page"
+          },
+          {
+            "path": "app/components/Sidebar.tsx",
+            "content": "Navigation sidebar component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/SalesChart.tsx",
+            "content": "Sales data chart component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/MetricsCard.tsx",
+            "content": "Reusable metrics card component",
+            "type": "component"
+          }
+        ],
+        "description": "Analytics dashboard with charts and responsive layout"
+      },
+      "metadata": {
+        "complexity": "complex",
+        "category": "dashboard",
+        "features": ["data_visualization", "responsive_grid", "sidebar_navigation"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Create a simple contact form with name, email, and message fields. Include form validation and success/error states."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Basic root layout",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Contact form page with validation",
+            "type": "page"
+          },
+          {
+            "path": "app/components/ContactForm.tsx",
+            "content": "Contact form component with validation logic",
+            "type": "component"
+          }
+        ],
+        "description": "Contact form with validation and state management"
+      },
+      "metadata": {
+        "complexity": "simple",
+        "category": "form",
+        "features": ["form_validation", "state_management", "error_handling"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Build an e-commerce product catalog with search, filtering, and product detail pages. Include shopping cart functionality."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with cart context provider",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Product catalog with search and filters",
+            "type": "page"
+          },
+          {
+            "path": "app/products/[id]/page.tsx",
+            "content": "Product detail page",
+            "type": "page"
+          },
+          {
+            "path": "app/components/ProductCard.tsx",
+            "content": "Product card component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/SearchBar.tsx",
+            "content": "Search functionality component",
+            "type": "component"
+          },
+          {
+            "path": "app/context/CartContext.tsx",
+            "content": "Shopping cart context provider",
+            "type": "component"
+          }
+        ],
+        "description": "E-commerce catalog with search, filtering, and cart functionality"
+      },
+      "metadata": {
+        "complexity": "complex",
+        "category": "ecommerce",
+        "features": ["search", "filtering", "cart", "dynamic_routing", "context_api"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Create a weather app that shows current weather and 5-day forecast. Include location search and responsive design."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with weather app metadata",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Weather app main page with current and forecast data",
+            "type": "page"
+          },
+          {
+            "path": "app/components/WeatherCard.tsx",
+            "content": "Current weather display component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/ForecastList.tsx",
+            "content": "5-day forecast component",
+            "type": "component"
+          },
+          {
+            "path": "app/api/weather/route.ts",
+            "content": "API route for weather data",
+            "type": "api"
+          }
+        ],
+        "description": "Weather application with current conditions and forecast"
+      },
+      "metadata": {
+        "complexity": "medium",
+        "category": "weather_app",
+        "features": ["api_integration", "search", "responsive_design", "data_fetching"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Build a minimal portfolio website with an about section, projects gallery, and contact form. Should be clean and professional."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Professional layout with navigation",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Portfolio home page with hero and sections",
+            "type": "page"
+          },
+          {
+            "path": "app/components/ProjectCard.tsx",
+            "content": "Project showcase component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/Navigation.tsx",
+            "content": "Site navigation component",
+            "type": "component"
+          }
+        ],
+        "description": "Professional portfolio website with projects and contact"
+      },
+      "metadata": {
+        "complexity": "simple",
+        "category": "portfolio",
+        "features": ["gallery", "contact_form", "professional_design", "navigation"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Create a real-time chat application with message history, user authentication, and typing indicators."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Root layout with auth provider",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Chat interface with message list and input",
+            "type": "page"
+          },
+          {
+            "path": "app/components/MessageList.tsx",
+            "content": "Chat messages display component",
+            "type": "component"
+          },
+          {
+            "path": "app/components/MessageInput.tsx",
+            "content": "Message input with typing indicators",
+            "type": "component"
+          },
+          {
+            "path": "app/api/messages/route.ts",
+            "content": "API route for message handling",
+            "type": "api"
+          },
+          {
+            "path": "app/lib/auth.ts",
+            "content": "Authentication utilities",
+            "type": "lib"
+          }
+        ],
+        "description": "Real-time chat with authentication and typing indicators"
+      },
+      "metadata": {
+        "complexity": "complex",
+        "category": "chat_app",
+        "features": ["real_time", "authentication", "websockets", "message_history"]
+      }
+    },
+    {
+      "input": {
+        "requirements": "Build a simple calculator app with basic arithmetic operations and a clean interface."
+      },
+      "expected": {
+        "files": [
+          {
+            "path": "app/layout.tsx",
+            "content": "Basic layout for calculator app",
+            "type": "layout"
+          },
+          {
+            "path": "app/page.tsx",
+            "content": "Calculator interface with display and buttons",
+            "type": "page"
+          },
+          {
+            "path": "app/components/Calculator.tsx",
+            "content": "Calculator component with arithmetic logic",
+            "type": "component"
+          },
+          {
+            "path": "app/lib/calculator.ts",
+            "content": "Calculator utility functions",
+            "type": "lib"
+          }
+        ],
+        "description": "Calculator app with basic arithmetic operations"
+      },
+      "metadata": {
+        "complexity": "simple",
+        "category": "utility_app",
+        "features": ["arithmetic_operations", "state_management", "clean_interface"]
+      }
+    }
+  ]

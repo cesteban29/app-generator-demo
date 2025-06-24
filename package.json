@@ -5,23 +5,33 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "braintrust-config": "braintrust push braintrust/01-project --if-exists ignore",
+    "braintrust-dataset": "braintrust push braintrust/02-dataset",
+    "braintrust-scorers": "braintrust push braintrust/03-scorers --if-exists replace",
+    "braintrust-prompts": "braintrust push braintrust/04-prompts",
+    "eval": "braintrust eval eval/example.eval.ts",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@braintrust/core": "^0.0.89",
+    "braintrust": "0.0.207",
+    "next": "15.3.4",
+    "openai": "^4.104.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "vercel-ai": "^0.0.0",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
