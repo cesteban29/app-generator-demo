@@ -8,7 +8,7 @@
     "braintrust-config": "braintrust push braintrust/01-project --if-exists ignore",
     "braintrust-dataset": "braintrust push braintrust/02-dataset",
     "braintrust-scorers": "braintrust push braintrust/03-scorers --if-exists replace",
-    "braintrust-prompts": "braintrust push braintrust/04-prompts",
+    "braintrust-prompts": "braintrust push braintrust/04-prompts --if-exists replace",
     "eval": "braintrust eval eval/example.eval.ts",
     "start": "next start",
     "lint": "next lint"
