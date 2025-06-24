@@ -12,35 +12,72 @@ export const jsonFormatScorer = project.scorers.create({
   }),
   handler: async ({ output }) => {
     try {
-      const parsed = JSON.parse(output);
+      console.log("Raw output:", output);
+      console.log("Output type:", typeof output);
+      
+      // Handle both string and object inputs
+      let parsed;
+      if (typeof output === 'string') {
+        parsed = JSON.parse(output);
+      } else {
+        parsed = output; // Already an object
+      }
+      console.log("Parsed JSON:", JSON.stringify(parsed, null, 2));
+      
+      // Handle nested output structure - check if data is under "output" key
+      const data = parsed.output || parsed;
+      console.log("Using data:", data);
       
       // Check required top-level fields
       const requiredFields = ['files', 'description'];
-      const hasRequiredFields = requiredFields.every(field => field in parsed);
+      const hasRequiredFields = requiredFields.every(field => field in data);
+      console.log("Has required fields:", hasRequiredFields, "Missing:", requiredFields.filter(field => !(field in data)));
       
       if (!hasRequiredFields) return 0;
       
       // Check files array structure
-      if (!Array.isArray(parsed.files) || parsed.files.length === 0) return 0;
+      if (!Array.isArray(data.files) || data.files.length === 0) {
+        console.log("Files array issue:", "isArray:", Array.isArray(data.files), "length:", data.files?.length);
+        return 0;
+      }
       
       // Check each file object has required fields
       const requiredFileFields = ['path', 'content', 'type'];
-      const filesValid = parsed.files.every((file: any) => 
+      const filesValid = data.files.every((file: any) => 
         requiredFileFields.every(field => field in file && file[field])
       );
-      
-      if (!filesValid) return 0;
+      console.log("Files valid:", filesValid);
+      if (!filesValid) {
+        data.files.forEach((file: any, index: number) => {
+          const missingFields = requiredFileFields.filter(field => !(field in file) || !file[field]);
+          if (missingFields.length > 0) {
+            console.log(`File ${index} missing/empty fields:`, missingFields);
+          }
+        });
+        return 0;
+      }
       
       // Check file types are valid
       const validTypes = ['component', 'page', 'layout', 'api', 'config', 'style', 'middleware', 'lib'];
-      const typesValid = parsed.files.every((file: any) => 
+      const typesValid = data.files.every((file: any) => 
         validTypes.includes(file.type)
       );
+      console.log("Types valid:", typesValid);
+      if (!typesValid) {
+        data.files.forEach((file: any, index: number) => {
+          if (!validTypes.includes(file.type)) {
+            console.log(`File ${index} has invalid type:`, file.type);
+          }
+        });
+      }
       
-      return typesValid ? 1 : 0.5; // Partial credit for wrong types
+      const score = typesValid ? 1 : 0.5;
+      console.log("Final score:", score);
+      return score;
       
     } catch (error) {
-      return 0; // Invalid JSON
+      console.log("Error:", error);
+      return 0;
     }
   },
 });

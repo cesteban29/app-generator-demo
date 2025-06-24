@@ -1,6 +1,6 @@
-import { project } from "./01-project";
+import { project } from "../01-config/project";
 
-export const generateChangelog1 = project.prompts.create({
+export const generateApp1 = project.prompts.create({
     name: "Generate App 1",
     slug: "generate-app-1",
     description: "example of a worse prompt",
@@ -51,7 +51,7 @@ export const generateChangelog1 = project.prompts.create({
     ],
   });
   
-  export const generateChangelog2 = project.prompts.create({
+  export const generateApp2 = project.prompts.create({
     name: "Generate App 2",
     slug: "generate-app-2",
     description: "example of a prompt",
