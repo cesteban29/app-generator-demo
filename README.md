@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# App Generator Demo
 
-## Getting Started
+A Next.js application evaluation framework using Braintrust to test and compare different AI prompt strategies for generating complete web applications.
 
-First, run the development server:
+## Prerequisites
 
+- Node.js 18+
+- pnpm
+- Braintrust account and API key
+
+## Setup
+
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Configure Braintrust (set your API key in environment):
+```bash
+export BRAINTRUST_API_KEY=your_api_key_here
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Push configuration to Braintrust (Go to package.json to view the full command)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm run braintrust-config
+pnpm run braintrust-dataset
+pnpm run braintrust-scorers
+pnpm run braintrust-prompts
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run evaluations to test prompt performance:
+```bash
+pnpm run eval
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `braintrust/` - Evaluation configuration, prompts, datasets, and scoring functions
+- `eval/` - Evaluation scripts and test runners
+- `lib/` - Shared constants and utilities
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Evaluation System
+
+The framework tests three prompt strategies (`generateApp1`, `generateApp2`, `generateApp3`) against multiple criteria:
+- JSON format compliance
+- Requirements fulfillment
+- Code completeness
+
+Results are tracked and compared in Braintrust for prompt optimization.
+
