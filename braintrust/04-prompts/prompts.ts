@@ -4,7 +4,7 @@ export const generateApp1 = project.prompts.create({
     name: "Generate App 1",
     slug: "generate-app-1",
     description: "example of a worse prompt",
-    model: "gpt-4o",
+    model: "claude-3-7-sonnet-latest",
     messages: [
       {
         content:
@@ -55,7 +55,7 @@ export const generateApp1 = project.prompts.create({
     name: "Generate App 2",
     slug: "generate-app-2",
     description: "example of a prompt",
-    model: "gpt-4o",
+    model: "claude-3-7-sonnet-latest",
     messages: [
       {
         content:
@@ -113,7 +113,7 @@ export const generateApp1 = project.prompts.create({
     name: "Generate App 3",
     slug: "generate-app-3",
     description: "example of a better prompt",
-    model: "gpt-4o",
+    model: "claude-3-7-sonnet-latest",
     messages: [
       {
         content:

@@ -23,7 +23,6 @@ export BRAINTRUST_API_KEY=your_api_key_here
 3. Push configuration to Braintrust (Go to package.json to view the full command)
 
 ```bash
-pnpm run braintrust-config
 pnpm run braintrust-dataset
 pnpm run braintrust-scorers
 pnpm run braintrust-prompts
@@ -36,7 +35,7 @@ Run evaluations to test prompt performance:
 ```bash
 pnpm run eval
 ```
-
+Feel free to uncomment the 2 additional Evals evaluating the other prompts.
 
 ## Project Structure
 

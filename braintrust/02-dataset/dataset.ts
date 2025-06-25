@@ -24,8 +24,12 @@ interface AppGeneratorData {
 const appGeneratorData: AppGeneratorData[] = dataset as AppGeneratorData[]; 
 
 export const evalDataset = async () => {
+  try {
+    console.log(`Starting dataset population for project: ${PROJECT_NAME}`);
+    console.log(`Processing ${appGeneratorData.length} records...`);
+    
     const dataset = initDataset(PROJECT_NAME, { dataset: "App Generator Dataset" });
-  
+    
     for (let i = 0; i < appGeneratorData.length; i++) {
       dataset.update({
         id: `app-generator-record-${i}`, // Use stable IDs for idempotency
@@ -33,8 +37,21 @@ export const evalDataset = async () => {
         expected: appGeneratorData[i].expected,
         metadata: appGeneratorData[i].metadata,
       });
+      
+      // Show progress for every 10 records or on the last record
+      if ((i + 1) % 10 === 0 || i === appGeneratorData.length - 1) {
+        console.log(`Processed ${i + 1}/${appGeneratorData.length} records`);
+      }
     }
-  
-  };
+    
+    console.log(`Dataset population completed successfully!`);
+    console.log(`Total records added: ${appGeneratorData.length}`);
+    
+  } catch (error) {
+    console.error(`Dataset population failed:`, error);
+    process.exit(1);
+  }
+};
 
+// Call the function to populate the dataset
 evalDataset();
