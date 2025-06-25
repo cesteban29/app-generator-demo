@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "braintrust-config": "braintrust push braintrust/01-project --if-exists ignore",
+    "braintrust-config": "braintrust push braintrust/01-config --if-exists ignore",
     "braintrust-dataset": "braintrust push braintrust/02-dataset",
     "braintrust-scorers": "braintrust push braintrust/03-scorers --if-exists replace",
     "braintrust-prompts": "braintrust push braintrust/04-prompts --if-exists replace",
